@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/autoWatering/autoWatering"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "自动浇水信息",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

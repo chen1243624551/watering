@@ -1,0 +1,38 @@
+<!--page/autoWatering/autoWatering.wxml-->
+<wxs module="filter">
+ function round (num){
+    return Math.round(num);
+  }
+  module.exports = {round:round}
+</wxs>
+<view class="contain">
+  <view class="hum">
+  <text>湿度：{{data[1].current_value}}</text>
+    <progress wx:if="{{data[1].current_value < 30}}" percent="{{data[1].current_value}}" stroke-width="40" activeColor="{{currentColor}}" backgroundColor="#ddd" border-radius="50" animation="{{animation}}" active></progress>
+  <progress wx:else percent="{{data[1].current_value}}" stroke-width="40" activeColor="{{currentColor}}"      backgroundColor="#ddd" border-radius="50" animation="{{animation}}" active class="HUM"></progress>
+  </view>
+
+  <view class="temp">
+  <text>温度：{{filter.round(data[0].current_value)}}℃</text>
+  <progress percent="{{data[0].current_value}}" stroke-width="40" activeColor="{{currentColor}}" backgroundColor="#ddd" border-radius="50" animation="{{animation}}" active></progress>
+  </view>
+
+  <view class="water">
+  <text>水量：{{filter.round(data[2].current_value)}}%</text>
+      <progress wx:if="{{data[2].current_value <30}}" percent="{{data[2].current_value}}" stroke-width="40" activeColor="{{currentColor}}" backgroundColor="#ddd" border-radius="50" animation="{{animation}}" active></progress>
+  <progress wx:else percent="{{data[2].current_value}}" stroke-width="40" activeColor="{{currentColor}}" backgroundColor="#ddd" border-radius="50" animation="{{animation}}" active></progress>
+  </view>
+</view>
+
+<view class="waterYield">
+<text>水量：{{filter.round(data[2].current_value)}}%</text>
+<slider wx:if="{{!isShow}}" nim="0" max="100" value="{{filter.round(data[2].current_value)}}" block-size="20"  activeColor="#00f" backgroundColor="#ddd" block-color="blue"></slider>
+</view>
+
+<view class="watering">
+  <button plain bindtap="onlaunchWatering" disabled="{{isShow}}">点击浇水</button>
+</view>
+
+<view>
+  <button open-type="getUserInfo" bindgetuserinfo="getuserinfo" plain>获取用户信息</button>
+</view>

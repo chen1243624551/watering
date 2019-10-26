@@ -1,0 +1,37 @@
+/* page/autoWatering/autoWatering.wxss */
+.contain{
+  display: flex;
+}
+.water,.hum,.temp{
+  flex:1;
+  position: relative;
+  margin-top: 100rpx;
+  width:250rpx;
+  height: 400rpx;
+  text-align: center;
+}
+.contain text{
+  position: absolute;
+  width: 100%;
+  bottom: 0rpx;
+  left: 0;
+}
+progress{
+  position: absolute;
+  width: 400rpx;
+  top: 100rpx;
+  right:0rpx;
+  margin-right: -70rpx;
+}
+.waterYield{
+  text-align: center;
+  margin-top: 100rpx;
+}
+.watering{
+  text-align: center;
+  margin: 100rpx 0;
+
+}
+button{
+  width:280rpx;
+}
